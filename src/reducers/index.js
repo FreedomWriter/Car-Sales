@@ -23,7 +23,10 @@ export const reducer = (state = initialState, action) => {
     case REMOVE_ITEM:
       return {
         ...state,
-        additionalFeatures: state.additionalFeatures.filter(item => !item)
+        car: {
+          ...state.car,
+          features: state.car.features.filter(item => !item)
+        }
       };
     case ADD_ITEM:
       console.log(
