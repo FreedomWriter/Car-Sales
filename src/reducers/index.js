@@ -1,6 +1,6 @@
 import { REMOVE_ITEM, ADD_ITEM } from "../actions";
 
-const initialState = {
+export const initialState = {
   additionalPrice: 0,
   car: {
     price: 26395,
@@ -18,7 +18,7 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  console.log(state);
+  console.log(`reducers: index.js: state: `, state);
   switch (action.type) {
     case REMOVE_ITEM:
       return {
@@ -26,9 +26,14 @@ export const reducer = (state = initialState, action) => {
         additionalFeatures: state.additionalFeatures.filter(item => !item)
       };
     case ADD_ITEM:
+      console.log(
+        `recuders: index.js: case: ADD_ITEM: action.payload: `,
+        action.payload
+      );
+      console.log(`reducers: index.js: case: ADD_ITEM: state: `, state);
       return {
         ...state,
-        additionalFeatures: [...state.additionalFeatures, action.payload]
+        car: { ...state.car, features: [...state.car.features, action.payload] }
       };
     default:
       return state;

@@ -11,6 +11,7 @@ export const removeItem = item => {
 };
 
 export const addItem = item => {
+  console.log(`actions: index.js: addItem: item: `, item);
   return {
     type: ADD_ITEM,
     payload: item

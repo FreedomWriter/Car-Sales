@@ -9,23 +9,32 @@ import { removeItem, addItem } from "./actions";
 import { strictEqual } from "assert";
 
 const App = props => {
+  console.log(`App.js: props: `, props);
   const removeFeature = item => {
     // dispatch an action here to remove an item
   };
 
   const buyItem = item => {
     // dipsatch an action here to add an item
-    addItem(item);
+    console.log(`App.js: buyItem: item: `, item);
+    props.addItem(item);
   };
 
   return (
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
-        <AddedFeatures car={props.car} addItem={addItem} />
+        <AddedFeatures
+          car={props.car}
+          // additionalFeatures={props.additionalFeatures}
+          // additionalPrice={props.additionalPrice}
+        />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
+        <AdditionalFeatures
+          additionalFeatures={props.additionalFeatures}
+          buyItem={buyItem}
+        />
         <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
@@ -37,6 +46,7 @@ const mapStateToProps = state => {
     car: state.car,
     additionalFeatures: state.additionalFeatures,
     additionalPrice: state.additionalPrice
+    // features: state.car.features
   };
 };
 
