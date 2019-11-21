@@ -22,13 +22,4 @@ const AddedFeature = props => {
   );
 };
 
-// const mapPropsToState = state => {
-//   return {
-//     car: {
-//       features: [...state.car.features, state.features]
-//     }
-//   };
-// };
-
-// export default connect(mapPropsToState)(AddedFeature);
 export default AddedFeature;

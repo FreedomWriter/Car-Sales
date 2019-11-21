@@ -47,7 +47,8 @@ const mapStateToProps = state => {
   return {
     car: state.car,
     additionalFeatures: state.additionalFeatures,
-    additionalPrice: state.additionalPrice
+    additionalPrice: state.additionalPrice,
+    price: state.price
     // features: state.car.features
   };
 };

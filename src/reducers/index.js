@@ -21,22 +21,33 @@ export const reducer = (state = initialState, action) => {
   console.log(`reducers: index.js: state: `, state);
   switch (action.type) {
     case REMOVE_ITEM:
+      console.log(
+        `recuders: index.js: case: REMOVE_ITEM: action.payload: `,
+        action.payload.id
+      );
       return {
         ...state,
         car: {
           ...state.car,
-          features: state.car.features.filter(item => !item)
+          features: [
+            ...state.car.features.filter(item => item !== action.payload)
+          ],
+          price: state.car.price - action.payload.price
         }
       };
     case ADD_ITEM:
       console.log(
         `recuders: index.js: case: ADD_ITEM: action.payload: `,
-        action.payload
+        action.payload.price
       );
       console.log(`reducers: index.js: case: ADD_ITEM: state: `, state);
       return {
         ...state,
-        car: { ...state.car, features: [...state.car.features, action.payload] }
+        car: {
+          ...state.car,
+          features: [...state.car.features, action.payload],
+          price: state.car.price + action.payload.price
+        }
       };
     default:
       return state;
