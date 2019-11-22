@@ -23,13 +23,4 @@ const AdditionalFeature = props => {
     </li>
   );
 };
-// const mapPropsToState = state => {
-//   return {
-//     car: {
-//       features: [...state.car.features, state.features]
-//     }
-//   };
-// };
-
-// export default connect(mapPropsToState, { addItem })(AdditionalFeature);
 export default AdditionalFeature;

@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import AddedFeature from "./AddedFeature";
 
 const AddedFeatures = props => {
@@ -24,17 +23,5 @@ const AddedFeatures = props => {
     </div>
   );
 };
-
-// const mapPropsToState = state => {
-//   return {
-//     ...state,
-//     car: {
-//       ...state.car,
-//       features: [...state.car.features, state.car.features]
-//     }
-//   };
-// };
-// //did this now I'm not getting updated features
-// export default connect(mapPropsToState)(AddedFeatures);
 
 export default AddedFeatures;
